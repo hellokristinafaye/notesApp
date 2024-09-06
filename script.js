@@ -7,7 +7,6 @@ let notes = document.querySelectorAll('.input-box');
 function showNotes() { 
     notesContainer.innerHTML = localStorage.getItem('notes');
 }
-showNotes()
 
 // for adding to local storage
 
@@ -42,3 +41,13 @@ notesContainer.addEventListener('click', function(e) {
         })
     }
 })
+
+// so the return button works inside the input box
+document.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+                document.execCommand("insertLineBreak");
+                event.preventDefault();
+            }
+        })
+       
+showNotes()
