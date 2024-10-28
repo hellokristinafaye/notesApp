@@ -1,3 +1,4 @@
+// 
 const notesContainer = document.querySelector('.notes-container');
 const createBtn = document.querySelector('.btn');
 let notes = document.querySelectorAll('.input-box');
@@ -34,6 +35,8 @@ notesContainer.addEventListener('click', function(e) {
     }
     else if(e.target.tagName === "P") {
         notes = document.querySelectorAll(".input-box");
+        // wait what does this do then? 
+        // OHH I think this assumes the user would have just added some content to the input box for a note.  So it updates local storage to hold the note
         notes.forEach(nt => {
             nt.onkeyup = function () {
                 updateStorage();
