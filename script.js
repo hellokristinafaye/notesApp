@@ -1,22 +1,20 @@
-// 
+// accessing the HTML elements by their class(.notes-container and .btn), and assigning that access to variable (notesContainer and createBtn [in this case create means the button creates, not that the button is created])
+// notes is declared with a let so it can easily change?  
 const notesContainer = document.querySelector('.notes-container');
 const createBtn = document.querySelector('.btn');
 let notes = document.querySelectorAll('.input-box');
 
-// pulling from local storage
-
+// pulling specific data ('notes') from local storage (localStorage.getItem) with teh method .getItem, and assigning the HTML content of the notesContainer to it.   
 function showNotes() { 
     notesContainer.innerHTML = localStorage.getItem('notes');
 }
 
-// for adding to local storage
-
+// for adding to local storage, setItem method accepts these two parameters: which key to set the value of ('notes') and what to set in that value (notesContainer.innerHTML, which is the contents of the Notes Container HTML element)
 function updateStorage() {
     localStorage.setItem('notes', notesContainer.innerHTML);
 }
 
 // create notes button functionality 
-
 createBtn.addEventListener('click', () => {
     let inputBox = document.createElement("p");
     let img = document.createElement("img");
